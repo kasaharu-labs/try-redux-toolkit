@@ -13,7 +13,15 @@ export class CounterComponent implements OnInit {
 
   ngOnInit() {}
 
-  onClick() {
+  onClickPlusButton() {
     store.dispatch(actions.increment());
+  }
+
+  onClickMinusButton() {
+    store.dispatch(actions.decrement());
+  }
+
+  onClickResetButton() {
+    store.dispatch(actions.reset());
   }
 }
