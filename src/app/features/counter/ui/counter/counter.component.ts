@@ -9,7 +9,7 @@ import { actions, createSelector, store } from '../../store';
 export class CounterComponent implements OnInit {
   constructor() {}
 
-  counter = createSelector<number>((state) => state.counter);
+  counter$ = createSelector<number>((state) => state.counter);
 
   ngOnInit() {}
 
