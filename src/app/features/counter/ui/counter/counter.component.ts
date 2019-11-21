@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CounterCommand } from '../../applications/counter.command';
 import { CounterQuery } from '../../applications/counter.query';
-import { actions, store } from '../../store';
 
 @Component({
   selector: 'app-counter',
@@ -8,24 +8,24 @@ import { actions, store } from '../../store';
   styleUrls: ['./counter.component.scss'],
 })
 export class CounterComponent implements OnInit {
-  constructor(private counterQuery: CounterQuery) {}
+  constructor(private counterCommand: CounterCommand, private counterQuery: CounterQuery) {}
   counter$ = this.counterQuery.counter$;
 
   ngOnInit() {}
 
   onClickPlusButton() {
-    store.dispatch(actions.increment());
+    this.counterCommand.increment();
   }
 
   onClickMinusButton() {
-    store.dispatch(actions.decrement());
+    this.counterCommand.decrement();
   }
 
   onClickResetButton() {
-    store.dispatch(actions.reset());
+    this.counterCommand.reset();
   }
 
   onClickAdd100() {
-    store.dispatch(actions.add(100));
+    this.counterCommand.add100();
   }
 }
