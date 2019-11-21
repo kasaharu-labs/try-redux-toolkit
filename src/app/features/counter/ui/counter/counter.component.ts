@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { actions, createSelector, store } from '../../store';
+import { CounterQuery } from '../../applications/counter.query';
+import { actions, store } from '../../store';
 
 @Component({
   selector: 'app-counter',
@@ -7,9 +8,8 @@ import { actions, createSelector, store } from '../../store';
   styleUrls: ['./counter.component.scss'],
 })
 export class CounterComponent implements OnInit {
-  constructor() {}
-
-  counter$ = createSelector<number>((state) => state.counter);
+  constructor(private counterQuery: CounterQuery) {}
+  counter$ = this.counterQuery.counter$;
 
   ngOnInit() {}
 
