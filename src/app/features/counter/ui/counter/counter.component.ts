@@ -24,4 +24,8 @@ export class CounterComponent implements OnInit {
   onClickResetButton() {
     store.dispatch(actions.reset());
   }
+
+  onClickAdd100() {
+    store.dispatch(actions.add(100));
+  }
 }
